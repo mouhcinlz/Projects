@@ -19,17 +19,24 @@
     <!-- Start Header -->
     <div class="header">
         <div class="container">
-            <a href="#" class="logo"><img src="imgs/Farmvetlogo.png" alt=""></a>
+            
+            <a href="#" class="logo">
+                <img id="img1" src="imgs/Farmvetlogo_white.png" alt="">
+                <img id="img2" src="imgs/Farmvetlogo.png" alt="">
+            </a>
+            
+            <div class="main-box">
+                <i class="fas fa-bars toggle-menu"></i>
             <ul class="main-nav">
                 <li> <a href="#">link1</a> </li>
                 <li> <a href="#">link2</a> </li>
                 <li> <a href="#">link3</a> </li>
                 <li> <a href="#">link4</a> </li>
-                <button>
-                    <a href="#" class="box">Sign in</a>
-                </button>
             </ul>
-            
+            <button>
+                <a href="#" class="box">Sign in</a>
+            </button>
+            </div>
         </div>
     </div>
     <!-- End Header -->
@@ -50,5 +57,29 @@
         </a>
     </div>
     <!-- End Landing-->
+
+    <script>
+        // JavaScript to dynamically switch photos based on screen size
+        window.addEventListener('resize', function() {
+          if (window.innerWidth >= 767) {
+            // Large media screen
+            document.getElementById('img1').style.display = 'block';
+            document.getElementById('img2').style.display = 'none';
+          } else {
+            // Small media screen
+            document.getElementById('img1').style.display = 'none';
+            document.getElementById('img2').style.display = 'block';
+          }
+        });
+      
+        // Initial check on page load
+        if (window.innerWidth >= 767) {
+          document.getElementById('img1').style.display = 'block';
+          document.getElementById('img2').style.display = 'none';
+        } else {
+          document.getElementById('img1').style.display = 'none';
+          document.getElementById('img2').style.display = 'block';
+        }
+      </script>
 </body>
 </html>
