@@ -1,0 +1,191 @@
+.content .box1 .body-box .card {
+    text-align: center;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 4px;
+    width: 600px;
+    margin: 75px auto;
+    padding: 10px 30px;
+    
+}
+
+.content .box1 .body-box .card .info {
+    margin-bottom: 20px;
+}
+
+.content .box1 .body-box .card .info img {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+}
+
+.content .box1 .body-box .card .info h2 {
+    margin-bottom: 0;
+}
+
+.content .box1 .body-box .card .info p {
+    margin: 0;
+    color: #777;
+}
+
+.content .box1 .body-box .card .text {
+    display: flex;
+    align-items: center;
+}
+
+.content .box1 .body-box .card .text:not(:nth-child(5)) {
+    border-bottom: 1px solid #ddd;
+}
+
+.content .box1 .body-box .card .text span {
+    font-weight: bold;
+    width: 120px;
+    margin-right: 30px;
+    text-align: center;
+}
+
+.content .box1 .body-box .card .text p {
+    color: #777;
+}
+
+.content .box1 .body-box .card .button {
+    margin-top: 30px;
+    margin-left: auto;
+    width: fit-content;
+    padding: 4px 10px;
+    border-radius: 6px;
+    color: white;
+    background-color: #c59522;
+    border: none;
+    font-size: 14px;
+    display: flex;
+    cursor: pointer;
+
+}
+
+
+
+.content .box1 .body-box .update-card {
+    margin: 149px 25px;
+    position: absolute;
+    width: 650px;
+    border-radius: 6px;
+    border: 1px solid black;
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    height: 535px;
+    top: 0;
+    z-index: 666;
+    box-shadow: rgba(0, 0, 0, 1.56) 0px 22px 70px 15px;
+    overflow: hidden;
+    transition: 0.5s ease;
+    display: none;
+}
+
+.content .box1 .body-box .update-card h1 {
+    text-align: center;
+    color: #c59522;
+    margin-bottom: 50px;
+}
+
+.content .box1 .body-box .update-card .close-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-bottom-left-radius: 15px;
+    cursor: pointer;
+    z-index: 1;
+    
+}
+
+.content .box1 .body-box .update-card .lab {
+    display: flex;
+    align-items: center;
+    
+}
+
+.content .box1 .body-box .update-card .lab .cssbuttons-io-button {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 0.4em 1.1em 0.4em 1.1em;
+    color: white;
+    background: #22c55e;
+    background: linear-gradient(0deg, rgb(34, 197, 94) 0%, rgb(34, 197, 94) 100%);
+    border: none;
+    box-shadow: 0 0.7em 1.5em -0.5em rgb(184, 146, 255);
+    letter-spacing: 0.05em;
+    border-radius: 20em;
+    cursor: pointer;
+    width: 200px;
+}
+
+.content .box1 .body-box .update-card .lab .cssbuttons-io-button svg {
+    margin-right: 18px;
+    width: 170px;
+}
+
+.content .box1 .body-box .update-card .lab .cssbuttons-io-button:hover {
+    box-shadow: 0 0.5em 1.5em -0.5em rgb(149, 91, 255);
+}
+
+.content .box1 .body-box .update-card .lab .cssbuttons-io-button:active {
+    box-shadow: 0 0.3em 1em -0.5em rgb(160, 109, 255);
+}
+
+.content .box1 .body-box .update-card .lab .cssbuttons-io-button .upload {
+    opacity: 0;
+}
+
+.content .box1 .body-box .update-card .lab label {
+
+    font-weight: bold;
+    width: 150px;
+    margin: 0 30px 0 25px;
+}
+
+.content .box1 .body-box .update-card .lab input {
+    border: 2px solid transparent;
+    width: 18em;
+    height: 2em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    transition: all 0.5s;
+    border-color: #777;
+
+}
+
+
+.content .box1 .body-box .update-card .lab input:hover,
+.content .box1 .body-box .update-card .lab input:focus {
+    border: 2px solid #22c55e;
+    box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+    background-color: white;
+}
+
+.content .box1 .body-box .update-card .button {
+    padding: 4px 10px;
+    color: white;
+    background-color: #c59522;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+    margin-top: 20px;
+    margin-left: auto;
+}

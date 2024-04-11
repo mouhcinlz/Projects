@@ -1,3 +1,38 @@
+<?php
+
+    include ("classes/connect.php");
+    include ("classes/sign-up.php");
+
+    $firstn = "";
+    $lastn = "";
+    $mail = "";
+    $type = "";
+    $error_msg = "";
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $signup = new signup();
+        $result = $signup->evaluate($_POST);
+
+        if($result != ""){
+            $error_msg ="ERROR: " . $result;
+            
+        } 
+
+        else{
+            header("Location: log-in.php");
+            die;
+        }
+
+        $firstn = $_POST['firstn'];
+        $lastn = $_POST['lastn'];
+        $mail = $_POST['mail'];
+        $type = $_POST['type'];
+        
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +46,19 @@
     <div class="card">
         <div class="form-container">
             <p class="title">Create account</p>
-            <form class="form">
-                <input type="text" class="input" placeholder="First Name">
-                <input type="text" class="input" placeholder="Last Name">
-                <input type="email" class="input" placeholder="Email">
-                <input type="password" class="input" placeholder="Password">
+            <?php
+            echo "<div style='color: red;font-size: 10px;margin: 0 0 5px 0'>";
+            echo $error_msg;
+            echo "</div>";
+            ?>
+            <form class="form" method="POST" action="">
+                <input value="<?php echo $firstn ?>" name="firstn" type="text" class="input" placeholder="First Name" required>
+                <input value="<?php echo $lastn ?>" name="lastn" type="text" class="input" placeholder="Last Name" required>
+                <input value="<?php echo $mail ?>" name="mail" type="email" class="input" placeholder="Email" required>
+                <input name="password" type="password" class="input" placeholder="Password">
                 <p class="p">choose your type:</p>
-                <select class="input" title="enter ur type">
+                <select name="type" class="input" title="enter ur type" >
+                    <option ><?php echo $type ?></option>
                     <option value="farmer">Farmer</option>
                     <option value="veterinary">Veterinary</option>
                 </select>
@@ -25,7 +66,7 @@
             </form>
             <p class="sign-up-label">
                 Already have an account?
-                <a class="sign-up-link" href="sign-in.html">Log in</a>
+                <a class="sign-up-link" href="log-in.php">Log in</a>
             </p>
             <div class="buttons-container">
                 <div class="apple-login-button">

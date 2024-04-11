@@ -1,3 +1,36 @@
+<?php
+    session_start();
+    include ("classes/connect.php");
+    include ("classes/log-in.php");
+
+    $mail = "";
+    $password = "";
+
+    $error_msg = "";
+
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $login = new login();
+        $result = $login->evaluate($_POST);
+
+        if($result != ""){
+            $error_msg = "ERROR :" . $result;
+        } 
+
+        else{
+            header("Location: farmer.php");
+            die;
+        }
+
+        $mail = $_POST['mail'];
+        $password = $_POST['password'];
+
+        
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +45,14 @@
     <div class="card">
         <div class="form-container">
             <img class="title" src="imgs/Farmvetlogo_3_color.png" alt="">
-            <form class="form">
-                <input type="email" class="input" placeholder="Email">
-                <input type="password" class="input" placeholder="Password">
+            <?php
+            echo "<div style='color: red;font-size: 10px;margin: 0 0 5px 0'>";
+            echo $error_msg ;
+            echo "</div>";
+            ?>
+            <form class="form" method="POST" >
+                <input name="mail" value="<?php echo $mail ?>" type="email" class="input" placeholder="Email">
+                <input name="password" value="<?php echo $password ?>" type="password" class="input" placeholder="Password">
                 <p class="page-link">
                     <span class="page-link-label">Forgot Password?</span>
                 </p>
@@ -22,7 +60,7 @@
             </form>
                 <p class="sign-up-label">
                 Don't have an account?
-                <a class="sign-up-link" href="sign-up.html">Sign up</a>
+                <a class="sign-up-link" href="sign-up.php">Sign up</a>
                 </p>
                 <div class="buttons-container">
                 <div class="apple-login-button">

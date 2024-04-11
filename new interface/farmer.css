@@ -35,9 +35,6 @@ ul {
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--main-color);
 }
-::placeholder {
-    color: white;
-}
 .page {
   display: flex;
   background-color: var(--main-alt-color);
@@ -141,7 +138,7 @@ font-weight: bold;
 .sidebar .fix-sidebar .box .info span p {
 font-size: 14px;
 font-weight: 100;
-color: darkgray;
+color: black;
 margin-top: 0;
 
 }
@@ -225,8 +222,10 @@ margin-top: 0;
 
 /* Start box1 */
 .content .box1 {
-  width: 700px;
+  max-width: 700px;
+  flex-grow: 1;
   border-right: 1px solid white;
+
 }
 
 .content .box1 .head-box {
@@ -254,22 +253,21 @@ margin-top: 0;
     text-align: center;
 }
 
-.content .box1 .head-box .title a {
+.content .box1 .head-box .title span {
     font-size: 18px;
     flex-grow: 1;
     text-align: center;
     align-items: center;
     cursor: pointer;
-    color: black;
 }
 
-.content .box1 .head-box .title a.active {
+.content .box1 .head-box .title span.active {
   color: white;
   position: relative;
   font-weight: bold;
 }
 
-.content .box1 .head-box .title a.active::before {
+.content .box1 .head-box .title span.active::before {
   content: "";
   background-color: var(--theered-color);
   transform: translateX(-50%);
@@ -327,9 +325,18 @@ margin-top: 0;
   margin: 22px 150px 0 20px;
 }
 
-.content .box1 .body-box .post .text .input-field textarea {
-  margin-top: 8px;
-  margin-bottom: 0;
+.content .box1 .body-box .post .text .input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+
+.content .box1 .body-box .post .text .input-field input {
   width: 100%;
   height: 40px;
   background: transparent;
@@ -337,7 +344,6 @@ margin-top: 0;
   outline: none;
   font-size: 16px;
   color: #fff;
-  resize: none;
 }
 
 .content .box1 .body-box .post .text .input-field input:focus ~ label,
@@ -350,7 +356,7 @@ margin-top: 0;
 .content .box1 .body-box .post .posting {
   display: flex;
   justify-content: space-between;
-  margin: 10px 65px 0;
+  margin: 20px 65px 0;
   border-top: 1px solid var(--grey-color);
   padding-top: 15px;
 }
@@ -396,15 +402,11 @@ margin-top: 0;
   margin: 0 10px 0 0;
 }
 
-.content .box1 .body-box .post .posting .button input {
+.content .box1 .body-box .post .posting .button a {
   color: white;
   background-color: var(--theered-color);
-  padding: 6px 10px;
+  padding: 5px 10px;
   border-radius: 50px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  border: none;
 }
 
 /* Start post-list */
@@ -522,9 +524,6 @@ margin-top: 0;
   width: 200px;
   transition: width 0.3s;
 }
-.content .box2 .head-box .search input::placeholder {
-    color: gray;
-}
 .content .box2 .head-box .search input:focus {
   width: 240px;
 }
@@ -619,4 +618,212 @@ transform: translate(2px ,2px);
   }
 }
 
+/* End Content */
+
+
+
+.page h1 {
+  position: relative;
+  margin: 20px 20px 40px;
+}
+.page h1::before,
+.page h1::after {
+  content: "";
+  height: 3px;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+}
+.page h1::before {
+  background-color: var(--main-alt-color);
+  width: 120px;
+}
+.page h1::after {
+  background-color: black;
+  width: 40px;
+}
+
+/* start post-content */
+.post-content {
+  display: block;
+  margin: 20px ;
+  width: 700px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.post-content .intro {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #eee;
+}
+
+.post-content .intro h2 {
+  margin: 0;
+}
+
+.post-content .intro p {
+  margin-top: 5px;
+  color: #888;
+}
+
+.post-content .intro img {
+    width: 200px;
+    margin-bottom: -10px;
+}
+
+.post-content .avatar {
+  width: 84px;
+  height: 84px;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 2px;
+  box-shadow: 0 0 5px #ddd;
+  margin-left: 20px;
+  margin-top: -42px;
+}
+
+.post-content form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-content .text-post {
+  padding: 10px;
+  display: block;
+  margin: 20px 25px 20px 15px;
+  background-color: #eee;
+  border-radius: 6px;
+  width: 400px;
+  height: 170px;
+  border: none;
+}
+
+.custum-file-upload {
+  margin: 20px 20px 20px 20px;
+  height: 170px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  gap: 20px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #cacaca;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 48px 35px -48px rgba(0,0,0,0.1);
+}
+
+.custum-file-upload .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .icon svg {
+  height: 50px;
+  fill: rgba(75, 85, 99, 1);
+}
+
+.custum-file-upload .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .text span {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(75, 85, 99, 1);
+}
+
+.custum-file-upload .image {
+  display: none;
+}
+
+.post-content .button {
+  display: block;
+  width: fit-content;
+  font-size: 14px;
+  color: white;
+  background-color: var(--theered-color);
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin: 0 15px 15px auto;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .post-content {
+    width: 325px;
+    margin: 10px;
+    text-align: center;
+  }
+  .post-content .intro img {
+    display: none;
+  }
+  .post-content .avatar {
+    width: 64px;
+    height: 64px;
+    margin-top: -32px;
+  }
+  .post-content form {
+    flex-direction: column;
+  }
+  .post-content .text-post {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 130px;
+  }
+  .custum-file-upload {
+    margin: 0 0 10px 15px;
+    padding: 0;
+    width: 100px;
+    height: 100px;
+  }
+  .custum-file-upload .icon svg {
+    height: 30px;
+  }
+  .custum-file-upload .text span {
+    font-size: 8px;
+  }
+}
+/* End post-content */
+
+
+
+
+
+
+/* start user profile */
+.profile-content {
+  display: block;
+  margin: 20px auto;
+  width: 800px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.profile-content .profile {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.profile-content .box {
+  
+}
+
+.profile-content .info {
+
+}
+/* End user profile */
 
